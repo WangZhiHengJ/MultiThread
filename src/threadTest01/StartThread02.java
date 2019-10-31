@@ -20,6 +20,7 @@ public class StartThread02 implements Runnable{
     public static void main(String[] args) {
 
         StartThread02 st = new StartThread02();
+        //noinspection AlibabaAvoidManuallyCreateThread
         new Thread(st).start();
         for (int i = 0; i < 200; i++) {
             System.out.println("一边写代码");
