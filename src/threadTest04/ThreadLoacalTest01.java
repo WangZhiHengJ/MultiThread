@@ -12,8 +12,9 @@ public class ThreadLoacalTest01 {
     private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
     public static void main(String[] args) {
         threadLocal.set(100);
-        System.out.println("main当前线程值："+threadLocal.get());
         new Thread(new MyThread()).start();
+        System.out.println("main当前线程值："+threadLocal.get());
+
 
     }
 

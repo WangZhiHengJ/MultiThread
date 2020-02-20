@@ -16,11 +16,11 @@ public class ThreadLoacalTest05 {
         threadLocal2.set(20);
         System.out.println(Thread.currentThread().getName()+"->>>" + threadLocal2.get());
 
-        //使用InheritableThreadLocal的时候，会继承上下文环境，也就是在哪个线程开辟的新线程会继承前一个线程的数据
+        //使用InheritableThreadLocal的时候，会继承上下文环境，也就是在哪个线程开辟的新线程会继承前一个线程的数据,并且不修改父线程的数据
         new Thread(()->{
-            System.out.println(Thread.currentThread().getName()+"->>>" + threadLocal2.get());
+            System.out.println(Thread.currentThread().getName()+"1"+"->>>" + threadLocal2.get());
             threadLocal2.set(10);
-            System.out.println(Thread.currentThread().getName()+"->>>" + threadLocal2.get());
+            System.out.println(Thread.currentThread().getName()+"2"+"->>>" + threadLocal2.get());
         }).start();
 
         System.out.println(Thread.currentThread().getName()+"->>>" + threadLocal2.get());
